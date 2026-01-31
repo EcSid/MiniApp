@@ -16,7 +16,7 @@ async function startApp() {
 	try {
 		await sequalize.authenticate()
 		await sequalize.sync()
-		app.listen(PORT, '0.0.0.0', () => console.log(`Server work on port=${PORT}`))
+		app.listen(PORT, () => console.log(`Server work on port=${PORT}`))
 	} catch (e) {
 		console.log(e)
 	}
