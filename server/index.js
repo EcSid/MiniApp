@@ -5,11 +5,11 @@ const dotenv = require('dotenv')
 const sequalize = require('./db.js')
 
 const PORT = process.env.PORT || 5000
-
+const CLIENT_URL = process.env.CLIENT_URL || 'http://103.74.94.187'
 dotenv.config()
 const app = express()
 
-app.use(cors({ origin: process.env.CLIENT_URL }))
+app.use(cors({ origin: CLIENT_URL }))
 app.use(express.json())
 app.use('/api', router)
 
