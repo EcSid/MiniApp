@@ -20,14 +20,12 @@ function App() {
 	const { user } = useTelegram()
 
 	React.useEffect(() => {
-		setNewIsRegistered(user?.id)
+		setNewIsRegistered(user?.id || 2015778805)
 	}, [])
 
 	const setNewIsRegistered = async (userId: Number) => {
 		try {
-			const { data } = await axios.get(
-				`${API_URL}/checkRegistration/${userId || 1}`,
-			)
+			const { data } = await axios.get(`${API_URL}/checkRegistration/${userId}`)
 			setIsRegistered(data)
 		} catch (e) {
 			console.log(e)
