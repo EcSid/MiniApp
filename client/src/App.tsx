@@ -25,7 +25,9 @@ function App() {
 
 	const setNewIsRegistered = async (userId: Number) => {
 		try {
-			const { data } = await axios.get(`${API_URL}/checkRegistration/${userId}`)
+			const { data } = await axios.get(
+				`${API_URL}/checkRegistration/${userId || 1}`,
+			)
 			setIsRegistered(data)
 		} catch (e) {
 			console.log(e)
