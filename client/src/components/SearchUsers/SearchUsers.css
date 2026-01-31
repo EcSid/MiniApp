@@ -1,0 +1,29 @@
+.Wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.Content {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.UsersList {
+	width: 90%;
+}
+
+.NoSearchResultsText {
+	margin-top: 30px;
+	color: var(--tg-theme-text-color);
+	font-size: 15px;
+	font-family: Helvetica, sans-serif;
+}
+
+.AgreementText {
+	color: var(--tg-theme-text-color);
+	max-width: 300px;
+	margin-bottom: 20px;
+	font-family: Helvetica, sans-serif;
+}
