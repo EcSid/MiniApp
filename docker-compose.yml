@@ -1,7 +1,12 @@
+version: '3.8'  # Add version specifier
+
+networks:
+  dev:  # This defines the network
+    driver: bridge
+
 services:
   nginx:
     image: nginx:stable-alpine
-    restart: unless-stopped # Add this line
     ports:
       - '80:80'
       - '443:443'
@@ -10,5 +15,17 @@ services:
     depends_on:
       - backend
       - frontend
+    networks:
+      - dev
+
+  backend:
+    build:
+      context: ./server
+    networks:
+      - dev
+
+  frontend:
+    build:
+      context: ./client
     networks:
       - dev
