@@ -15,9 +15,9 @@ const UserProfile: FC = () => {
 	const [favouriteBooks, setFavouriteBooks] = useState([])
 
 	useEffect(() => {
-		setNewFavouriteFilms(Number(user?.id || 2015778805))
-		setNewFavouriteSongs(Number(user?.id || 2015778805))
-		setNewFavouriteBooks(Number(user?.id || 2015778805))
+		setNewFavouriteFilms(Number(user?.id))
+		setNewFavouriteSongs(Number(user?.id))
+		setNewFavouriteBooks(Number(user?.id))
 	}, [])
 
 	const setNewFavouriteFilms = async (userId: Number) => {

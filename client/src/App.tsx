@@ -20,7 +20,7 @@ function App() {
 	const { user } = useTelegram()
 
 	React.useEffect(() => {
-		setNewIsRegistered(user?.id || 2015778805)
+		setNewIsRegistered(user?.id)
 	}, [])
 
 	const setNewIsRegistered = async (userId: Number) => {
