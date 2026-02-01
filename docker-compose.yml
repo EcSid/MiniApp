@@ -1,9 +1,5 @@
-version: '3.8'  # Add version specifier
-
 networks:
-  dev:  # This defines the network
-    driver: bridge
-
+  dev:
 services:
   nginx:
     image: nginx:stable-alpine
