@@ -25,7 +25,7 @@ const SearchUsers: FC = () => {
 	const setNewUsersWithSameTaste = async (userId: Number) => {
 		try {
 			const { data } = await axios.get(
-				`${API_URL}/getUsersWithSameTaste/${userId}`
+				`${API_URL}/getUsersWithSameTaste/${userId}`,
 			)
 			setUsersWithSameTaste(data)
 		} catch (e) {
@@ -65,7 +65,7 @@ const SearchUsers: FC = () => {
 						variant='contained'
 						onClick={() => {
 							setUserIsAgreed(true)
-							setUserAgreementInDB(1)
+							setUserAgreementInDB(user?.id)
 						}}
 						sx={{
 							backgroundColor: 'var(--tg-theme-button-color)',
@@ -87,7 +87,7 @@ const SearchUsers: FC = () => {
 					startIcon={<SearchIcon />}
 					onClick={() => {
 						setButtonWasPressed(true)
-						setNewUsersWithSameTaste(1)
+						setNewUsersWithSameTaste(user?.id)
 					}}
 					sx={{
 						backgroundColor: 'var(--tg-theme-button-color)',
