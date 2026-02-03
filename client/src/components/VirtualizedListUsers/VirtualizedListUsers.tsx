@@ -59,11 +59,20 @@ const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 						key={Number(value?.id)}
 						secondaryAction={
 							<IconButton
-								onClick={() =>
-									window.Telegram.WebApp.openTelegramLink(
-										`tg://resolve?domain=${value?.id}`,
-									)
-								}
+								onClick={() => {
+									const username = value?.username
+									const userId = value?.id
+
+									if (username && username.trim() !== '') {
+										window.Telegram.WebApp.openTelegramLink(
+											`https://t.me/${username}`,
+										)
+									} else {
+										window.Telegram.WebApp.openLink(
+											`https://web.telegram.org/k/${userId}`,
+										)
+									}
+								}}
 							>
 								<MessageIcon sx={{ color: 'grey' }} />
 							</IconButton>
@@ -71,11 +80,20 @@ const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 						disablePadding
 					>
 						<ListItemButton
-							onClick={() =>
-								window.Telegram.WebApp.openTelegramLink(
-									`tg://resolve?domain=${value?.id}`,
-								)
-							}
+							onClick={() => {
+								const username = value?.username
+								const userId = value?.id
+
+								if (username && username.trim() !== '') {
+									window.Telegram.WebApp.openTelegramLink(
+										`https://t.me/${username}`,
+									)
+								} else {
+									window.Telegram.WebApp.openLink(
+										`https://web.telegram.org/k/${userId}`,
+									)
+								}
+							}}
 						>
 							<ListItemAvatar>
 								<Avatar />
