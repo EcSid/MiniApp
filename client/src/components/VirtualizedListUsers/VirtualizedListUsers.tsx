@@ -17,6 +17,8 @@ interface IVirtualizedListUsers {
 	data: IUser[]
 }
 
+const LINK_TO_USER_TG = import.meta.env.VITE_LINK_TO_USER_TG
+
 const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 	// const [checked, setChecked] = React.useState([1])
 
@@ -59,20 +61,9 @@ const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 						key={Number(value?.id)}
 						secondaryAction={
 							<IconButton
-								onClick={() => {
-									const username = value?.username
-									const userId = value?.id
-
-									if (username && username.trim() !== '') {
-										window.Telegram.WebApp.openTelegramLink(
-											`https://t.me/${username}`,
-										)
-									} else {
-										window.Telegram.WebApp.openLink(
-											`https://web.telegram.org/k/${userId}`,
-										)
-									}
-								}}
+								onClick={() =>
+									window.location.assign(LINK_TO_USER_TG + String(value?.id))
+								}
 							>
 								<MessageIcon sx={{ color: 'grey' }} />
 							</IconButton>
@@ -80,20 +71,9 @@ const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 						disablePadding
 					>
 						<ListItemButton
-							onClick={() => {
-								const username = value?.username
-								const userId = value?.id
-
-								if (username && username.trim() !== '') {
-									window.Telegram.WebApp.openTelegramLink(
-										`https://t.me/${username}`,
-									)
-								} else {
-									window.Telegram.WebApp.openLink(
-										`https://web.telegram.org/k/${userId}`,
-									)
-								}
-							}}
+							onClick={() =>
+								window.location.assign(LINK_TO_USER_TG + String(value?.id))
+							}
 						>
 							<ListItemAvatar>
 								<Avatar />
