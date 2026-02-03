@@ -61,7 +61,7 @@ const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 							<IconButton
 								onClick={() =>
 									window.Telegram.WebApp.openTelegramLink(
-										`tg://user?id=${value?.id}`,
+										`tg://resolve?domain=${value?.id}`,
 									)
 								}
 							>
@@ -70,7 +70,13 @@ const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 						}
 						disablePadding
 					>
-						<ListItemButton>
+						<ListItemButton
+							onClick={() =>
+								window.Telegram.WebApp.openTelegramLink(
+									`tg://resolve?domain=${value?.id}`,
+								)
+							}
+						>
 							<ListItemAvatar>
 								<Avatar />
 							</ListItemAvatar>
