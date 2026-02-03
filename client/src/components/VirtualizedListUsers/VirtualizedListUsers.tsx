@@ -58,20 +58,19 @@ const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 					<ListItem
 						key={Number(value?.id)}
 						secondaryAction={
-							<IconButton>
-								<MessageIcon
-									sx={{ color: 'grey' }}
-									onClick={() =>
-										window.location.assign(`tg://user?id=${value.id}`)
-									}
-								/>
+							<IconButton
+								onClick={() =>
+									window.Telegram.WebApp.openTelegramLink(
+										`tg://user?id=${value?.id}`,
+									)
+								}
+							>
+								<MessageIcon sx={{ color: 'grey' }} />
 							</IconButton>
 						}
 						disablePadding
 					>
-						<ListItemButton
-							onClick={() => window.location.assign(`tg://user?id=${value.id}`)}
-						>
+						<ListItemButton>
 							<ListItemAvatar>
 								<Avatar />
 							</ListItemAvatar>
