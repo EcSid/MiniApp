@@ -17,8 +17,6 @@ interface IVirtualizedListUsers {
 	data: IUser[]
 }
 
-const LINK_TO_USER_TG = import.meta.env.VITE_LINK_TO_USER_TG
-
 const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 	// const [checked, setChecked] = React.useState([1])
 
@@ -61,14 +59,23 @@ const VurtualizedListUsers: FC<IVirtualizedListUsers> = ({ data }) => {
 						key={Number(value?.id)}
 						secondaryAction={
 							<IconButton>
-								<MessageIcon sx={{ color: 'grey' }} />
+								<MessageIcon
+									sx={{ color: 'grey' }}
+									onClick={() =>
+										window.Telegram.WebApp.openTelegramLink(
+											`tg://user?id=${value?.id}`,
+										)
+									}
+								/>
 							</IconButton>
 						}
 						disablePadding
 					>
 						<ListItemButton
 							onClick={() =>
-								window.location.assign(LINK_TO_USER_TG + String(value?.id))
+								window.Telegram.WebApp.openTelegramLink(
+									`tg://user?id=${value?.id}`,
+								)
 							}
 						>
 							<ListItemAvatar>
